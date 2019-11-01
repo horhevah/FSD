@@ -2,35 +2,42 @@
 
 body{
   font-family: 'Quicksand', sans-serif;
+  font-size:19px;
 }
 
 .container{
-left:15em;
+left:500px;
 position:absolute;
 justify-content: center;
 display: flex;
-align-items: center;
-align-content: center;
 flex-direction:column;
   }
+
 .conteiner_row{
-  justify-content:center;
-  width:15em;
-  display: flex;
-  flex-direction:column;
+
+  vertical-align: middle;
+  margin:10px;
+  width:300px;
+  height: 70px;
   }
 
 .color-square{
- position:absolute;
- float:left;
-  border-radius:15%;
-  width:70px;
-  height:70px;
+  float: left;
+ border-radius:5px;
+ width:70px;
+ height:70px;
 }
-.color-square+p{
-  padding-left:70px;
+
+.color_title, .color_body{
+  position: relative;
+ margin-left:90px;
+ top:10px;
   text-align:left;
 
+}
+.color_title{
+
+  font-weight: bold;
 }
 
 .color-square_dark-shade100{
