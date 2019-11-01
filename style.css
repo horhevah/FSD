@@ -1,3 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap&subset=latin-ext,vietnamese');
+
 body{
-  background-color: pink;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.container{
+left:15em;
+position:absolute;
+justify-content: center;
+display: flex;
+align-items: center;
+align-content: center;
+flex-direction:column;
+  }
+.conteiner_row{
+  justify-content:center;
+  width:15em;
+  display: flex;
+  flex-direction:column;
+  }
+
+.color-square{
+ position:absolute;
+ float:left;
+  border-radius:15%;
+  width:70px;
+  height:70px;
+}
+.color-square+p{
+  padding-left:70px;
+  text-align:left;
+
+}
+
+.color-square_dark-shade100{
+  background-color: #1F2041;
+  opacity: 1;
+}
+
+.color-square_dark-shade75{
+  background-color: #1F2041;
+  opacity: 0.75;
+}
+
+.color-square_dark-shade50{
+  background-color: #1F2041;
+  opacity: 0.50;
+}
+
+.color-square_dark-shade25{
+  background-color: #1F2041;
+  opacity: 0.25;
+}
+
+.color-square_dark-shade5{
+  background-color: #1F2041;
+  opacity: 0.05;
+}
+
+.color-square-purple{
+  background-color: #BC9CFF;
+
+}
+
+.color-square-green{
+  background-color: #6FCF97;
+
 }
