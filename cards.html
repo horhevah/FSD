@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style\cards.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="lable_image">
+    <img src="src\Group.svg" alt="label">
+  </div>
+<div class="container">
+  <form class="container-1" action="index.html" method="post">
+    <p>Найдем номера под ваши пожелания</p>
+    <div class="container-1_dates">
+      <label for="date_in">прибытие <br>
+      <input type='date' name="date_in" id='date_in' placeholder="дд.мм.гггг"></label>
+
+      <label for="date_out">выезд<br>
+        <input type='date' name="date_out" id='date_out' placeholder="дд.мм.гггг"></label>
+
+    </div>
+    <label for="guests">гости</label>
+    <select class="input_guests" name="guests">
+      <option selected disabled>Сколько гостей</option>
+    </select>
+    <input type="submit" name="" value="подобрать номер    ->">
+    </form>
+  </div>
+
+</body>
+</html>
