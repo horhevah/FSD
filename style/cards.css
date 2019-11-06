@@ -9,12 +9,15 @@ body{
 }
 
 .container{
-  width: 380px;
+
   display: flex;
-  flex-wrap: wrap;
+  /*justify-content: space-around;*/
 }
 
-.container-1{
+.form{
+  margin: 0 10px;
+  width: 350px;
+  display: flex;
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.12);
   border-radius: 3px;
   padding: 30px;
@@ -25,13 +28,13 @@ body{
 
 }
 
-.container-1 p{
+.form-1_h1{
 font-family: 'Quicksand', sans-serif;
 font-size: 24px;
 text-transform: inherit;
 }
 
-.container-1_dates{
+.form-1_dates{
 line-height: 25px;
 text-transform: uppercase;
 display: flex;
@@ -40,7 +43,7 @@ justify-content: space-between;
 margin-bottom: 20px;
 }
 
-.container-1_dates input{
+.form-1_dates input{
   text-align: center;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
@@ -50,7 +53,7 @@ margin-bottom: 20px;
   border-radius: 3px;
 }
 
-.container-1_input-guests{
+.form-1_input-guests{
 line-height: 25px;
 text-transform: uppercase;
 
@@ -58,20 +61,75 @@ margin-bottom: 20px;
 }
 
 
-.container-1_input-guests select{
+.form-1_input-guests select{
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   border:1px solid #E5E5E5;
   width: 100%;
   height: 35px;
   border-radius: 3px;
+
 }
 
-.container-1_button{
+.form-1_button{
   border-radius: 20px;
   height:40px;
   border:none;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
+  color:white;
+  font-weight:bold;
   background:linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.arrow_button-1{
+  width: 20px;
+  height: 20px;
+position: relative;
+/*z-index:0;*/
+bottom:30px;
+left:270px;
+}
+
+.form-2{
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+
+}
+.form-2_number_N{
+
+  vertical-align:middle;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+
+}
+
+.form-2_number{
+
+  vertical-align:middle;
+  font-family: 'Quicksand', sans-serif;
+  font-size:20px;
+}
+
+.form-2_lux{
+
+  font-family: 'Montserrat', sans-serif;
+  color: #BC9CFF;
+  font-size: 12px;
+  text-transform: uppercase;
+  vertical-align:middle;
+}
+
+.form-2_prise_unb{
+  font-weight:lighter;
+}
+
+.form-2_prise{
+
+width: 180px;
+color:rgba(31, 32, 65, 0.5);
+text-align: right;
+vertical-align:middle;
+font-size: 14px;
 }
