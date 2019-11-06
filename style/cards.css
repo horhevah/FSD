@@ -94,7 +94,7 @@ left:270px;
 .form-2{
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-content:space-around;
 
 }
 .form-2_number_N{
@@ -132,4 +132,53 @@ color:rgba(31, 32, 65, 0.5);
 text-align: right;
 vertical-align:middle;
 font-size: 14px;
+}
+
+.form-2_dates{
+  width: 100%;
+line-height: 25px;
+text-transform: uppercase;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+margin-bottom: 20px;
+}
+
+.form-2_dates input{
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  border:1px solid #E5E5E5;
+  width: auto;
+  height: 35px;
+  border-radius: 3px;
+}
+
+.form-2_input-guests{
+width:100%;
+line-height: 25px;
+text-transform: uppercase;
+margin-bottom: 20px;
+}
+
+
+.form-2_input-guests select{
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  border:1px solid #E5E5E5;
+  width: 100%;
+  height: 35px;
+  border-radius: 3px;
+}
+
+.form-2_button{
+  width:90%;
+  border-radius: 20px;
+  height:40px;
+  border:none;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  color:white;
+  font-weight:bold;
+  background:linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 }
