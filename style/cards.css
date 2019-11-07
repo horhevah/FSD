@@ -9,7 +9,6 @@ body{
 }
 
 .container{
-
   display: flex;
   /*justify-content: space-around;*/
 }
@@ -17,6 +16,7 @@ body{
 .form{
   margin: 0 10px;
   width: 350px;
+  height: auto;
   display: flex;
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.12);
   border-radius: 3px;
@@ -24,11 +24,12 @@ body{
   background-color:white ;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
 
 }
 
 .form-1_h1{
+  display: flex;
 font-family: 'Quicksand', sans-serif;
 font-size: 24px;
 text-transform: inherit;
@@ -53,6 +54,7 @@ margin-bottom: 20px;
   border-radius: 3px;
 }
 
+
 .form-1_input-guests{
 line-height: 25px;
 text-transform: uppercase;
@@ -62,6 +64,7 @@ margin-bottom: 20px;
 
 
 .form-1_input-guests select{
+
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   border:1px solid #E5E5E5;
@@ -82,32 +85,31 @@ margin-bottom: 20px;
   background:linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 }
 
-.arrow_button-1{
-  width: 20px;
-  height: 20px;
-position: relative;
-/*z-index:0;*/
-bottom:30px;
-left:270px;
-}
-
 .form-2{
   flex-direction: row;
   flex-wrap: wrap;
   align-content:space-around;
 
 }
-.form-2_number_N{
 
+.form-2_h1{
+  align-items: baseline;
+  line-height: 36px;
+  width: 100%;
+  margin:10px 0;
+  font-size:14px;
+  display:flex;
+  justify-content: space-around;
+
+}
+.form-2_number_N{
   vertical-align:middle;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-
 }
 
 .form-2_number{
-
-  vertical-align:middle;
+  display:flex;
   font-family: 'Quicksand', sans-serif;
   font-size:20px;
 }
@@ -121,17 +123,15 @@ left:270px;
   vertical-align:middle;
 }
 
-.form-2_prise_unb{
-  font-weight:lighter;
-}
-
 .form-2_prise{
-
-width: 180px;
+margin-left: auto;
+display:flex;
 color:rgba(31, 32, 65, 0.5);
 text-align: right;
-vertical-align:middle;
 font-size: 14px;
+}
+.form-2_prise_unb{
+  font-weight:lighter;
 }
 
 .form-2_dates{
@@ -171,6 +171,49 @@ margin-bottom: 20px;
   border-radius: 3px;
 }
 
+.form-2_summ, .form-2_sbor, .form-2_sbordop{
+  width: 100%;
+  margin:10px 0;
+  font-size:14px;
+  color:rgba(31, 32, 65, 0.5);
+  display:flex;
+  justify-content: flex-start;
+}
+
+.form-2_summ-x, .form-2_sbor-discription, .form-2_sbor-value, .form-2_sbordop-discription, .form-2_sbordop-value{
+
+  text-align: left;
+}
+.form-2_sbor-inf, .form-2_sbordop-inf{
+  position: relative;
+  top:-2px;
+  left: 2px;
+  width:20px;
+  height:20px;
+  border:1px solid rgba(31, 32, 65, 0.5);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.form-2_summ-prise, .form-2_sbor-prise, .form-2_sbordop-prise {
+
+  margin-left: auto;
+  text-align: right;
+}
+
+.form-2_itogo{
+  margin:20px 0;
+  width: 100%;
+  font-size:18px;
+  display:flex;
+  justify-content: space-between;
+
+}
+
+.form-2_itogo-dot{
+border-bottom: 0.1em dotted rgba(31, 32, 65, 0.5);
+  width:100%;
+}
 .form-2_button{
   width:90%;
   border-radius: 20px;

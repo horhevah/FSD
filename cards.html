@@ -15,15 +15,14 @@
   <form class="form form-1" action="index.html" method="post">
     <p class="form-1_h1">Найдем номера под ваши пожелания</p>
     <div class="form-1_dates">
-      <label for="date_in">прибытие <br>
-      <input type='date' name="date_in" id='date_in' placeholder="дд.мм.гггг"></label>
+      <label for="date_in_1">прибытие <br>
+      <input type='date' name="date_in_1" id='date_in_1' placeholder="дд.мм.гггг"></label>
 
-      <label for="date_out">выезд<br>
-        <input type='date' name="date_out" id='date_out' placeholder="дд.мм.гггг"></label>
-
+      <label for="date_out_1">выезд<br>
+        <input type='date' name="date_out_1" id='date_out_1' placeholder="дд.мм.гггг"></label>
     </div>
-    <label for="guests" class="form-1_input-guests">гости<br>
-    <select  name="guests" id='guests'>
+    <label for="guests_1" class="form-1_input-guests">гости<br>
+    <select  name="guests_1" id='guests_1'>
       <option selected disabled>Сколько гостей</option>
     </select>
     </label>
@@ -33,22 +32,45 @@
 
 
   <form class="form form-2" action="index.html" method="post">
-    <div class="form-2_number"> <span class="form-2_number_N">№</span> 888 <span class="form-2_lux"> люкс </span></div>
-    <div class="form-2_prise"> 9 990Р  <span class="form-2_prise_unb">в сутки</span></div>
+    <div class="form-2_h1">
+    <div class="form-2_number_N">№&nbsp; </div> <div class="form-2_number">888&nbsp;</div> <div class="form-2_lux"> люкс </div>
+    <div class="form-2_prise"> 9 990Р &nbsp; <span class="form-2_prise_unb">в сутки</span></div>
+    </div>
     <div class="form-2_dates">
-      <label for="date_in">прибытие <br>
-      <input type='date' name="date_in" id='date_in' placeholder="дд.мм.гггг"></label>
+      <label for="date_in_2">прибытие <br>
+      <input type='date' name="date_in_2" id='date_in_2' placeholder="выавы"></label>
 
-      <label for="date_out">выезд<br>
-        <input type='date' name="date_out" id='date_out' placeholder="дд.мм.гггг"></label>
+      <label for="date_out_2">выезд<br>
+        <input type='date' name="date_out_2" id='date_out_2' placeholder="23.08.2019"></label>
         </div>
-      <label for="guests" class="form-2_input-guests">гости<br>
-       <select  name="guests" id='guests'>
-         <option selected disabled>Сколько гостей</option>
+      <label for="guests_2" class="form-2_input-guests">гости<br>
+       <select  name="guests_2" id='guests_2'>
+         <option selected disabled>3 гостя</option>
        </select>
       </label>
+    <div class="form-2_summ">
+      <div class="form-2_summ-x">9900Р x 4 суток</div>
+      <div class="form-2_summ-prise">39960Р</div>
+    </div>
+    <div class="form-2_sbor">
+      <div class="form-2_sbor-discription">Сбор за услуги: </div>
+        <div class="form-2_sbor-value">скидка 2 179Р</div>
+      <div class="form-2_sbor-inf">i</div>
+      <div class="form-2_sbor-prise">0Р</div>
+    </div>
+    <div class="form-2_sbordop">
+      <div class="form-2_sbordop-discription">Сбор за дополнительные услуги: </div>
+      <div class="form-2_sbordop-inf">i</div>
+      <div class="form-2_sbordop-prise">300Р</div>
+    </div>
 
-    <input class='form-2_button' type="submit" name="submit_number" value="подобрать номер">
+    <div class="form-2_itogo">
+      <div class="form-2_itogo-discription">Итого </div>
+      <div class="form-2_itogo-dot"></div>
+      <div class="form-2_itogo-prise">38081Р</div>
+    </div>
+
+    <input class='form-2_button' type="submit" name="submit_number" value="забронировать">
     <img src="src\arrow_forward.png" alt="" class='arrow_button-1' >
     </form>
   </div>
