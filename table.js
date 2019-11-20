@@ -34,7 +34,6 @@ if (date<startday){
 else if(date_in>=maxdate){
     date_in=date-maxdate-startday+1;
     day[j].classList.add('grey');
-
   }
   else{
     date_in=date-startday+1;
@@ -64,7 +63,6 @@ if (!day[j].classList.contains('grey')) {
      else if (evt.currentTarget.classList.contains('checked')){
      evt.currentTarget.classList.remove('checked');
       for(var k=vacant[0]+1; k<vacant[1]; k++){
-
       document.querySelector('.day-'+(k+startday-1)).classList.remove('mchecked');
       document.querySelector('.day-'+(vacant[0]+startday-1)).classList.remove('firstchecked');
       document.querySelector('.day-'+(vacant[1]+startday-1)).classList.remove('secondchecked');
@@ -77,16 +75,48 @@ if (!day[j].classList.contains('grey')) {
     n--;
     console.log(n,t,vacant[0],vacant[1], evt.currentTarget);
     }
-  })
-
+  });
 }
 }
 }
 
 
+var startCoords = {};
+var list = document.querySelector('.list');
+var button = document.querySelector('.form-2_button');
+var handle = document.querySelector('.handle');
+var close = document.querySelector('.close');
 
-//var days = document.querySelectorAll('.day');
-//for (var i = 0; i < 35; i++) {
-  //console.log(days[i],i);
+var start = function(evt){
+  var startCoords = {
+    x : evt.clientX,
+    y : evt.clientY
+  };
+  document.addEventListener('mousemove',move);
+}
 
-//}
+var move = function(moveEvt){
+    var currentCoords = {
+    x: startCoords.x - moveEvt.clientX,
+    y: startCoords.y - moveEvt.clientY
+  };
+  startCoords.x = moveEvt.clientX;
+  startCoords.y = moveEvt.clientY;
+  list.style.top = (list.offsetTop - currentCoords.y) + 'px';
+  list.style.left = (list.offsetLeft - currentCoords.x) + 'px';
+  document.addEventListener('mouseup',stop);
+}
+
+var stop = function(evt){
+document.removeEventListener('mousemove',move);
+document.removeEventListener('mouseup',stop);
+}
+
+button.addEventListener('click', function(evt){
+list.classList.remove('hidden');})
+
+close.addEventListener('click',function(evt){
+  list.classList.add('hidden');
+});
+
+handle.addEventListener('mousedown',start);

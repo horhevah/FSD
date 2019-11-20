@@ -8,6 +8,17 @@ body{
   font-weight: bold;
 }
 
+select{
+
+  -webkit-appearance:none;
+  	-moz-appearance:none;
+  	-ms-appearance:none;
+  	background:url('../src/expand_more.png');
+  	background-repeat:no-repeat;
+  	background-size:15px 10px;
+  	background-position:97% 50%;
+  }
+
 .header{
   margin: 10px;
   margin-bottom:50px;
@@ -52,6 +63,7 @@ text-transform: inherit;
 }
 
 .form-1_dates{
+  width: 100%;
 line-height: 25px;
 text-transform: uppercase;
 display: flex;
@@ -65,22 +77,19 @@ margin-bottom: 20px;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   border:1px solid #E5E5E5;
-  width: auto;
-  height: 35px;
-  border-radius: 3px;
-}
 
+}
 
 .form-1_input-guests{
 line-height: 25px;
 text-transform: uppercase;
-
+width: 100%;
 margin-bottom: 20px;
 }
 
 
 .form-1_input-guests select{
-
+  width: 100%;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   border:1px solid #E5E5E5;
@@ -179,6 +188,13 @@ margin-bottom: 20px;
 
 
 .form-2_input-guests select{
+  -webkit-appearance:none;
+  	-moz-appearance:none;
+  	-ms-appearance:none;
+  	background:url('../src/expand_more.png');
+  	background-repeat:no-repeat;
+  	background-size:15px 10px;
+  	background-position:97% 50%;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   border:1px solid #E5E5E5;
@@ -323,4 +339,32 @@ border-bottom: 0.1em dotted rgba(31, 32, 65, 0.5);
 
 .secondchecked{
   border-radius: 0 50% 50% 0 ;
+}
+
+.list{
+  position: absolute;
+  top:50px;
+  left:150px;
+  text-align: center;
+  margin:auto;
+  background-color: pink;
+  opacity: 0.7;
+  width: 700px;
+  height: 500px;
+  font-size: 60px;
+}
+
+.hidden{
+  display:none;
+}
+
+.close{
+  line-height: 50px;
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  position:absolute;
+  right:10px;
+  top:10px;
+  font-size: 20px;
 }
