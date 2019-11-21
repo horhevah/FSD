@@ -80,7 +80,6 @@ if (!day[j].classList.contains('grey')) {
 }
 }
 
-
 var startCoords = {};
 var list = document.querySelector('.list');
 var button = document.querySelector('.form-2_button');
