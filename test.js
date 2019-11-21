@@ -87,7 +87,7 @@ var renderCalendar = function (mouth){
 }
 
 
-
+var years = [];
 var mouths = [];
   mouths[0] = {
     name: 'Январь',
