@@ -8,6 +8,50 @@ var addDiv = function(parent,cssclass){
 
 
 
+var createYear = function(y){
+  var year={
+     mouths:[]
+  };
+  for (var i = 0; i < years[2019].mouths.length; i++) {
+  var o={};
+  year.mouths.push(o);
+  year.mouths[i].name = years[2019].mouths[i].name;
+  year.mouths[i].maxDate = years[2019].mouths[i].maxDate;
+  year.mouths[i].prevMaxDate = years[2019].mouths[i].prevMaxDate;
+
+  }
+  year.mouths[0].startDayOfWeek = years[2019].mouths[0].startDayOfWeek
+  if (years[y-1]==undefined){
+    year.mouths[0].startDayOfWeek = years[y+1].mouths[0].startDayOfWeek - 1;
+  }else{
+    year.mouths[0].startDayOfWeek = years[y-1].mouths[0].startDayOfWeek + 1;
+  }
+  if (y%4==0){
+      year.mouths[1].maxDate = 29;
+      year.mouths[2].prevMaxDate = 29;
+      if (years[y-1]==undefined){
+        year.mouths[0].startDayOfWeek = years[y+1].mouths[0].startDayOfWeek - 2;
+      }
+  }
+  if(y%4==1){
+    if(years[y-1]!=undefined)
+    year.mouths[0].startDayOfWeek = years[y-1].mouths[0].startDayOfWeek + 2;
+  }
+
+
+  for (var i = 1; i < year.mouths.length; i++) {
+
+    year.mouths[i].prevMaxDate = year.mouths[i-1].maxDate;
+    year.mouths[i].startDayOfWeek = (year.mouths[i-1].maxDate%7+year.mouths[i-1].startDayOfWeek)%7;
+
+  }
+    return year;
+}
+
+
+
+
+
 var checkedDate = function(evt){
   if(!evt.target.classList.contains('checked')&&n<2){
     evt.target.classList.add('checked');
@@ -47,14 +91,6 @@ var checkedDate = function(evt){
 }
 
 
-
-
-
-
-
-
-
-
 var renderCalendar = function (mouth){
   var container =document.createElement('div');
   container.className='calendar';
@@ -88,54 +124,57 @@ var renderCalendar = function (mouth){
 
 
 var years = [];
+years[2019] ={};
 var mouths = [];
-  mouths[0] = {
+years[2019].mouths = mouths;
+
+  years[2019].mouths[0] = {
     name: 'Январь',
     maxDate: 31,
     startDayOfWeek: 1,
     prevMaxDate: 31,
   };
-  mouths[1] = {
+  years[2019].mouths[1] = {
     name: 'Февраль',
     maxDate: 28
   };
-  mouths[2] = {
+  years[2019].mouths[2] = {
     name: 'Март',
     maxDate: 31
   };
-  mouths[3] = {
+  years[2019].mouths[3] = {
     name: 'Апрель',
     maxDate: 30
   };
-  mouths[4] = {
+  years[2019].mouths[4] = {
     name: 'Май',
     maxDate: 31
   };
-  mouths[5] = {
+  years[2019].mouths[5] = {
     name: 'Июнь',
     maxDate: 30
   };
-  mouths[6] = {
+  years[2019].mouths[6] = {
     name: 'Июль',
     maxDate: 31
   };
-  mouths[7] = {
+  years[2019].mouths[7] = {
     name: 'Август',
     maxDate: 31
   };
-  mouths[8] = {
+  years[2019].mouths[8] = {
     name: 'Сентябрь',
     maxDate: 30
   };
-  mouths[9] = {
+  years[2019].mouths[9] = {
     name: 'Октябрь',
     maxDate: 31
   };
-  mouths[10] = {
+  years[2019].mouths[10] = {
     name: 'Ноябрь',
     maxDate: 30
   } ;
-  mouths[11] = {
+  years[2019].mouths[11] = {
     name: 'Декабрь',
     maxDate: 31
   };
@@ -145,11 +184,12 @@ for (var i = 1; i < mouths.length; i++) {
   mouths[i].startDayOfWeek = (mouths[i-1].maxDate%7+mouths[i-1].startDayOfWeek)%7;
 }
 
+console.log(years[2019].mouths[11].startDayOfWeek);
 
-
+var currentYear=2019;
 var points={};
 var n=0;
-var m=4;
+var currentMouth=11;
 var daysOfWeek = ['пн','вт','ср','чт','пт','сб','вс'];
 var day = [];
 var calendar = document.querySelector('.form-3');
@@ -157,32 +197,44 @@ var header = calendar.querySelector('.calendar_header');
 var prev = calendar.querySelector('.prev_mouth');
 var mouthName = calendar.querySelector('.mouth_name');
 var next = calendar.querySelector('.next_mouth');
-mouthName.textContent = mouths[m].name;
+mouthName.textContent = years[currentYear].mouths[currentMouth].name + '/' + currentYear;
 var week = addDiv(calendar,'days-of-week');
 for(var i=0;i<7;i++) {
  var dayOfWeek  = addDiv(week,'day-of-week day-of-week-'+i);
  dayOfWeek.textContent = daysOfWeek[i];
 }
 
-var weeks = renderCalendar(mouths[m]);
+var weeks = renderCalendar(years[currentYear].mouths[currentMouth]);
 calendar.appendChild(weeks);
 prev.addEventListener('click',function(evt){
  calendar.removeChild(weeks);
- m--;
- if(m<0){
-   m=11;
+ currentMouth--;
+ if(currentMouth<0){
+   currentMouth=11;
+   currentYear--;
+   if(years[currentYear]==undefined){
+     years[currentYear] = createYear(currentYear);
+   }
  }
- mouthName.textContent = mouths[m].name;
- weeks = renderCalendar(mouths[m]);
+ mouthName.textContent = years[currentYear].mouths[currentMouth].name + '/' + currentYear;
+console.log(years[currentYear].mouths[currentMouth].startDayOfWeek);
+console.log(years[2019].mouths[11].startDayOfWeek);
+ weeks = renderCalendar(years[currentYear].mouths[currentMouth]);
  calendar.appendChild(weeks);
+ console.log(years[2019].mouths[11].startDayOfWeek);
 })
 next.addEventListener('click',function(evt){
  calendar.removeChild(weeks);
- m++;
- if(m>11){
-  m=0;
+ currentMouth++;
+ if(currentMouth>11){
+  currentMouth=0;
+  currentYear++;
+  if(years[currentYear]==undefined){
+    years[currentYear] = createYear(currentYear);
+  }
  }
- weeks = renderCalendar(mouths[m]);
- mouthName.textContent = mouths[m].name;
+ weeks = renderCalendar(years[currentYear].mouths[currentMouth]);
+ mouthName.textContent = years[currentYear].mouths[currentMouth].name  + '/' + currentYear;
  calendar.appendChild(weeks);
+ console.log(years[2019].mouths[11].startDayOfWeek);
 })
