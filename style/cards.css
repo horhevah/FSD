@@ -212,7 +212,8 @@ margin-bottom: 20px;
   justify-content: flex-start;
 }
 
-.form-2_summ-x, .form-2_sbor-discription, .form-2_sbor-value, .form-2_sbordop-discription, .form-2_sbordop-value{
+.form-2_summ-x, .form-2_sbor-discription, .form-2_sbor-value,
+.form-2_sbordop-discription, .form-2_sbordop-value{
 
   text-align: left;
 }
@@ -411,3 +412,19 @@ height: 50px;}
 
  font-size: 24px;
  }
+
+.slider{
+  display: flex;
+  width: 100%;
+  height:50px;
+  border:1px solid black;
+}
+
+.point{
+  top:-20px;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background:linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  border-radius:50px;
+}

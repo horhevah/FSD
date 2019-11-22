@@ -18,7 +18,6 @@ var createYear = function(y){
   year.mouths[i].name = years[2019].mouths[i].name;
   year.mouths[i].maxDate = years[2019].mouths[i].maxDate;
   year.mouths[i].prevMaxDate = years[2019].mouths[i].prevMaxDate;
-
   }
   year.mouths[0].startDayOfWeek = years[2019].mouths[0].startDayOfWeek
   if (years[y-1]==undefined){
@@ -37,13 +36,10 @@ var createYear = function(y){
     if(years[y-1]!=undefined)
     year.mouths[0].startDayOfWeek = years[y-1].mouths[0].startDayOfWeek + 2;
   }
-
-
   for (var i = 1; i < year.mouths.length; i++) {
 
     year.mouths[i].prevMaxDate = year.mouths[i-1].maxDate;
     year.mouths[i].startDayOfWeek = (year.mouths[i-1].maxDate%7+year.mouths[i-1].startDayOfWeek)%7;
-
   }
     return year;
 }
@@ -184,8 +180,6 @@ for (var i = 1; i < mouths.length; i++) {
   mouths[i].startDayOfWeek = (mouths[i-1].maxDate%7+mouths[i-1].startDayOfWeek)%7;
 }
 
-console.log(years[2019].mouths[11].startDayOfWeek);
-
 var currentYear=2019;
 var points={};
 var n=0;
@@ -238,3 +232,55 @@ next.addEventListener('click',function(evt){
  calendar.appendChild(weeks);
  console.log(years[2019].mouths[11].startDayOfWeek);
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+var startCoord;
+var currentCoord;
+var startD;
+var d = 0;
+var max = 320;
+var pointStartTranslate = function(evt){
+  console.log(0);
+  startCoord = evt.clientX;
+  startD = d;
+  console.log(startCoord,evt.clientX);
+    document.addEventListener('mousemove',pointMove);
+    document.addEventListener('mouseup',pointMoveStop);
+}
+
+var pointMove = function(evt){
+  currentCoord = evt.clientX;
+  d = startD + currentCoord - startCoord;
+  if(d>=0&&d<max){
+    point.style.left = d + 'px';
+    console.log(startCoord,evt.clientX,currentCoord,point.style.left,d);
+  }else if(d<=0){
+    d=0;
+    point.style.left = d + 'px';
+  }else{
+    d=max;
+    point.style.left = d + 'px';
+  }
+
+  }
+
+var pointMoveStop = function(evt) {
+  console.log(1);
+  document.removeEventListener('mousemove',pointMove);
+  document.removeEventListener('mouseup',pointMoveStop);
+}
+
+var point = document.querySelector('.point');
+
+point.addEventListener('mousedown',pointStartTranslate);
