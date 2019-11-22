@@ -276,11 +276,23 @@ border-bottom: 0.1em dotted rgba(31, 32, 65, 0.5);
   justify-content: space-between;
 }
 .days-of-week, .week{
+
+  width: 100%;
   flex-direction: row;
   display: flex;
   justify-content: space-between;
 
 }
+
+.day-of-week{
+color: rgba(31, 32, 65, 0.5);
+border-radius: 50%;
+display:flex;
+justify-content: center;
+align-items: center;
+width: 50px;
+height: 50px;}
+
 
 .day{
   color: rgba(31, 32, 65, 0.5);
@@ -288,15 +300,16 @@ border-bottom: 0.1em dotted rgba(31, 32, 65, 0.5);
   display:flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
+
 }
 
 .day:hover{
   color: white;
   background:linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);*/
-  width: 40px;
-  height: 40px;
+  /*width: 50px;
+  height: 50px;*/
 }
 
 
