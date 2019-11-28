@@ -45,9 +45,6 @@ var createYear = function(y){
 }
 
 
-
-
-
 var checkedDate = function(evt){
   if(!evt.target.classList.contains('checked')&&n<2){
     evt.target.classList.add('checked');
