@@ -8,7 +8,7 @@ var addDiv = function(parent,cssclass){
 
 
 
-var createYear = function(y){
+/*var createYear = function(y){
   var year={
      mouths:[]
   };
@@ -46,7 +46,7 @@ var createYear = function(y){
 
   }
     return year;
-}
+}*/
 
 
 
@@ -121,60 +121,57 @@ var renderCalendar = function (mouth){
   }
   return container;
 }
+var currentDate = new Date();
+console.log();
 
-
-var years = [];
-years[2019] ={};
 var mouths = [];
-years[2019].mouths = mouths;
-
-  years[2019].mouths[0] = {
+  mouths[0] = {
     name: 'Январь',
     maxDate: 31,
     startDayOfWeek: 1,
     prevMaxDate: 31,
   };
-  years[2019].mouths[1] = {
+  mouths[1] = {
     name: 'Февраль',
     maxDate: 28
   };
-  years[2019].mouths[2] = {
+  mouths[2] = {
     name: 'Март',
     maxDate: 31
   };
-  years[2019].mouths[3] = {
+  mouths[3] = {
     name: 'Апрель',
     maxDate: 30
   };
-  years[2019].mouths[4] = {
+  mouths[4] = {
     name: 'Май',
     maxDate: 31
   };
-  years[2019].mouths[5] = {
+  mouths[5] = {
     name: 'Июнь',
     maxDate: 30
   };
-  years[2019].mouths[6] = {
+  mouths[6] = {
     name: 'Июль',
     maxDate: 31
   };
-  years[2019].mouths[7] = {
+  mouths[7] = {
     name: 'Август',
     maxDate: 31
   };
-  years[2019].mouths[8] = {
+  mouths[8] = {
     name: 'Сентябрь',
     maxDate: 30
   };
-  years[2019].mouths[9] = {
+  mouths[9] = {
     name: 'Октябрь',
     maxDate: 31
   };
-  years[2019].mouths[10] = {
+  mouths[10] = {
     name: 'Ноябрь',
     maxDate: 30
   } ;
-  years[2019].mouths[11] = {
+  mouths[11] = {
     name: 'Декабрь',
     maxDate: 31
   };
@@ -184,12 +181,13 @@ for (var i = 1; i < mouths.length; i++) {
   mouths[i].startDayOfWeek = (mouths[i-1].maxDate%7+mouths[i-1].startDayOfWeek)%7;
 }
 
-console.log(years[2019].mouths[11].startDayOfWeek);
+//console.log(years[2019].mouths[11].startDayOfWeek);
 
 var currentYear=2019;
 var points={};
 var n=0;
-var currentMouth=11;
+var currentMouth=0;
+
 var daysOfWeek = ['пн','вт','ср','чт','пт','сб','вс'];
 var day = [];
 var calendar = document.querySelector('.form-3');
@@ -197,14 +195,14 @@ var header = calendar.querySelector('.calendar_header');
 var prev = calendar.querySelector('.prev_mouth');
 var mouthName = calendar.querySelector('.mouth_name');
 var next = calendar.querySelector('.next_mouth');
-mouthName.textContent = years[currentYear].mouths[currentMouth].name + '/' + currentYear;
+mouthName.textContent = mouths[currentMouth].name + '/' + currentYear;
 var week = addDiv(calendar,'days-of-week');
 for(var i=0;i<7;i++) {
  var dayOfWeek  = addDiv(week,'day-of-week day-of-week-'+i);
  dayOfWeek.textContent = daysOfWeek[i];
 }
 
-var weeks = renderCalendar(years[currentYear].mouths[currentMouth]);
+var weeks = renderCalendar(mouths[currentMouth]);
 calendar.appendChild(weeks);
 prev.addEventListener('click',function(evt){
  calendar.removeChild(weeks);
@@ -212,16 +210,13 @@ prev.addEventListener('click',function(evt){
  if(currentMouth<0){
    currentMouth=11;
    currentYear--;
-   if(years[currentYear]==undefined){
-     years[currentYear] = createYear(currentYear);
-   }
+   mouths[11].startDayOfWeek = (mouths[0].startDayOfWeek - mouths[11].maxDate%7 + 7) % 7;
+ }else{
+ mouths[currentMouth].startDayOfWeek = (mouths[currentMouth+1].startDayOfWeek - mouths[currentMouth].maxDate%7 + 7) % 7;
  }
- mouthName.textContent = years[currentYear].mouths[currentMouth].name + '/' + currentYear;
-console.log(years[currentYear].mouths[currentMouth].startDayOfWeek);
-console.log(years[2019].mouths[11].startDayOfWeek);
- weeks = renderCalendar(years[currentYear].mouths[currentMouth]);
+ mouthName.textContent = mouths[currentMouth].name + '/' + currentYear;
+ weeks = renderCalendar(mouths[currentMouth]);
  calendar.appendChild(weeks);
- console.log(years[2019].mouths[11].startDayOfWeek);
 })
 next.addEventListener('click',function(evt){
  calendar.removeChild(weeks);
@@ -229,12 +224,11 @@ next.addEventListener('click',function(evt){
  if(currentMouth>11){
   currentMouth=0;
   currentYear++;
-  if(years[currentYear]==undefined){
-    years[currentYear] = createYear(currentYear);
-  }
+  mouths[0].startDayOfWeek = (mouths[0].maxDate%7+mouths[11].startDayOfWeek)%7;
+ }else{
+ mouths[currentMouth].startDayOfWeek = (mouths[currentMouth-1].maxDate%7+mouths[currentMouth-1].startDayOfWeek)%7;
  }
- weeks = renderCalendar(years[currentYear].mouths[currentMouth]);
- mouthName.textContent = years[currentYear].mouths[currentMouth].name  + '/' + currentYear;
+ weeks = renderCalendar(mouths[currentMouth]);
+ mouthName.textContent = mouths[currentMouth].name  + '/' + currentYear;
  calendar.appendChild(weeks);
- console.log(years[2019].mouths[11].startDayOfWeek);
 })
