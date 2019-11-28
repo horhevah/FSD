@@ -1,3 +1,5 @@
+'use strict';
+
 
 var sliderDynamic = function (minValue,maxValue){
 
@@ -7,6 +9,7 @@ var startD;
 var d = 0;
 var max = 320;
 var range = (maxValue - minValue)/max;
+console.log(range);
 var pointStartTranslate = function(evt){
   console.log(0);
   startCoord = evt.clientX;
@@ -37,7 +40,7 @@ var pointMove = function(evt){
     point_value.textContent = Math.round(minValue + d*range);
   }
 
-  }
+}
 
 var pointMoveStop = function(evt) {
   console.log(1);
@@ -48,8 +51,11 @@ var pointMoveStop = function(evt) {
 
 var point = document.querySelector('.point');
 var point_value = document.querySelector('.point_value');
+var scale = document.querySelector('.scale')
+
 point_value.textContent = minValue;
 point.addEventListener('mousedown',pointStartTranslate);
-
+//scale.addEventListener('click')
 }
+
 sliderDynamic(5,9);
