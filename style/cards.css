@@ -336,7 +336,7 @@ height: 50px;}
 .mchecked{
   background:linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   opacity: 0.5;
-  border-radius: 0;
+  border-radius: 0 !important;
 }
 
 .grey{

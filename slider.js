@@ -1,4 +1,5 @@
 'use strict';
+(function () {
 
 
 var sliderDynamic = function (minValue,maxValue){
@@ -39,6 +40,20 @@ var pointMove = function(evt){
     point_value.style.left = d + 'px';
     point_value.textContent = Math.round(minValue + d*range);
   }
+}
+
+var pointJump = function(evt) {
+  currentCoord = evt.clientX;
+  point_value.classList.remove('hidden');
+  d = currentCoord - scale_coord.left-15;
+  point.style.left = d + 'px';
+  point_value.style.left = d + 'px';
+  point_value.textContent = Math.round(minValue + d*range);
+  point.addEventListener('mouseup',function () {
+    console.log('ok');
+    point_value.classList.add('hidden');
+  });
+  console.log(startCoord,evt.clientX,currentCoord,point.style.left,d);
 
 }
 
@@ -52,10 +67,13 @@ var pointMoveStop = function(evt) {
 var point = document.querySelector('.point');
 var point_value = document.querySelector('.point_value');
 var scale = document.querySelector('.scale')
-
+var scale_coord = scale.getBoundingClientRect();
 point_value.textContent = minValue;
 point.addEventListener('mousedown',pointStartTranslate);
-//scale.addEventListener('click')
+scale.addEventListener('mousedown',pointJump);
 }
 
 sliderDynamic(5,9);
+
+console.log('sdfsdf');
+})();
